@@ -2,6 +2,12 @@ name: Hello GitHub Actions
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   hello:
@@ -14,11 +20,3 @@ jobs:
         run: |
           echo "OS: $RUNNER_OS"
           echo "Repository: $GITHUB_REPOSITORY"
-
-      - name: Fail intentionally
-        run: |
-          echo "This step will fail."
-          exit 0
-
-      - name: Print after failure
-        run: echo "This message should not appear."
