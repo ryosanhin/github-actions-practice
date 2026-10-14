@@ -14,3 +14,11 @@ jobs:
         run: |
           echo "OS: $RUNNER_OS"
           echo "Repository: $GITHUB_REPOSITORY"
+
+      - name: Fail intentionally
+        run: |
+          echo "This step will fail."
+          exit 1
+
+      - name: Print after failure
+        run: echo "This message should not appear."
