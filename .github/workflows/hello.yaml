@@ -13,6 +13,17 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
+      - name: Show files before checkout
+        run: ls -la
+
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Show files after checkout
+        run: |
+          ls -la
+          cat practice.txt
+
       - name: Print message
         run: echo "Hello, GitHub Actions!"
 
