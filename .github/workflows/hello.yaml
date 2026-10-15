@@ -13,6 +13,14 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
+      - name: Print message
+        run: echo "Hello, GitHub Actions!"
+
+      - name: Show environment
+        run: |
+          echo "OS: $RUNNER_OS"
+          echo "Repository: $GITHUB_REPOSITORY"
+
       - name: Show files before checkout
         run: ls -la
 
@@ -33,11 +41,9 @@ jobs:
 
       - name: Show Godot version
         run: godot --version
+      
+      - name: Import project
+        run: godot --headless --path . --import
 
-      - name: Print message
-        run: echo "Hello, GitHub Actions!"
-
-      - name: Show environment
-        run: |
-          echo "OS: $RUNNER_OS"
-          echo "Repository: $GITHUB_REPOSITORY"
+      - name: Run practice script
+        run: godot --headless --path . --script tests/ci_practice.gd
