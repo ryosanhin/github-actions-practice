@@ -24,6 +24,16 @@ jobs:
           ls -la
           cat practice.txt
 
+      - name: Setup Godot
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.5.1"
+          use-dotnet: false
+          include-templates: false
+
+      - name: Show Godot version
+        run: godot --version
+
       - name: Print message
         run: echo "Hello, GitHub Actions!"
 
